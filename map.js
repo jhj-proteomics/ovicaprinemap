@@ -12,9 +12,7 @@ function addMarkers(filters) {
 
     data.forEach(function(item) {
         if ((filters.country && filters.country !== 'all' && item.Country !== filters.country) ||
-            (filters.period && filters.period !== 'all' && item.Period !== filters.period) ||
-            (filters.sheep && !item.Sheep) ||
-            (filters.goat && !item.Goat)) {
+            (filters.period && filters.period !== 'all' && item.Period !== filters.period)) {
             return; // Skip if not matching the filter
         }
 
@@ -54,8 +52,6 @@ function applyFilters() {
     var filters = {
         country: document.getElementById('country-filter').value,
         period: document.getElementById('period-filter').value,
-        sheep: document.getElementById('sheep-filter').checked,
-        goat: document.getElementById('goat-filter').checked
     };
     addMarkers(filters);
 }
@@ -63,8 +59,6 @@ function applyFilters() {
 // Event listeners for filter changes
 document.getElementById('country-filter').addEventListener('change', applyFilters);
 document.getElementById('period-filter').addEventListener('change', applyFilters);
-document.getElementById('sheep-filter').addEventListener('change', applyFilters);
-document.getElementById('goat-filter').addEventListener('change', applyFilters);
 
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
